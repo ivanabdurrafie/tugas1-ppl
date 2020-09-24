@@ -2,7 +2,8 @@ import {
   incrementQty, 
   decrementQty,
   subtotal,
-  diskon
+  diskon,
+  absQty
 } from './helpers.js';
 
 const incrButton = document.querySelector('#incr');
@@ -14,18 +15,20 @@ const subtotalInput = document.querySelector('#subtotal');
 const codeInput = document.querySelector('#code');
 
 incrButton.addEventListener('click', () => {
+  absQty();
   qtyInput.value = incrementQty(qtyInput.value);
   subtotalInput.textContent = `Rp. ${subtotal(qtyInput.value,priceInput.value)}`;
-  // qtyInput.setAttribute("type","int");
-  // priceInput.setAttribute("type","int");
+  qtyInput.setAttribute("type","int");
+  priceInput.setAttribute("type","int");
   
 });
 
 decrButton.addEventListener('click', () => {
+  absQty();
   qtyInput.value = decrementQty(qtyInput.value);
   subtotalInput.textContent = `Rp. ${subtotal(qtyInput.value,priceInput.value)}`;
-  // qtyInput.setAttribute("type","int");
-  // priceInput.setAttribute("type","int");
+  qtyInput.setAttribute("type","int");
+  priceInput.setAttribute("type","int");
 });
 
 okButton.addEventListener('click',() => {
